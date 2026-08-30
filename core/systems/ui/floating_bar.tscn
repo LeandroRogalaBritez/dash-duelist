@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ceaqgtjyqa5i6"]
+
+[ext_resource type="Script" uid="uid://ndgy7po6dn3k" path="res://core/systems/ui/floating_bar.gd" id="1_x5ns0"]
+
+[node name="FloatingBar" type="ProgressBar" unique_id=1738947827]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+show_percentage = false
+script = ExtResource("1_x5ns0")

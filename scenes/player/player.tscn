@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cyvvu20c2xso8"]
+
+[ext_resource type="Script" uid="uid://btpfy7hahoxh" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="Texture2D" uid="uid://byfacud1alvfm" path="res://icon.svg" id="2_0owmy"]
+[ext_resource type="Script" uid="uid://cfpp2e4n7hump" path="res://core/systems/audio/sound_bank.gd" id="2_gmlin"]
+[ext_resource type="Script" uid="uid://dwsgabdsleka6" path="res://core/systems/state_machine/state_machine.gd" id="3_lvxji"]
+[ext_resource type="Script" uid="uid://c2dptwt7y0t65" path="res://scenes/player/states/idle_move_state.gd" id="4_75vfm"]
+[ext_resource type="Script" uid="uid://dln02iikpo6j8" path="res://scenes/player/states/dash_state.gd" id="5_0owmy"]
+[ext_resource type="Script" uid="uid://ddrmrman8ow3l" path="res://scenes/player/states/cooldown_state.gd" id="6_qek5x"]
+[ext_resource type="PackedScene" uid="uid://ceaqgtjyqa5i6" path="res://core/systems/ui/floating_bar.tscn" id="8_qek5x"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1683019178]
+script = ExtResource("1_8afob")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=944527683]
+texture = ExtResource("2_0owmy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=147548956]
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=138818905]
+
+[node name="SoundBank" type="Node" parent="." unique_id=1465508717]
+script = ExtResource("2_gmlin")
+
+[node name="StateMachine" type="Node" parent="." unique_id=419941992 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_lvxji")
+initial_state = NodePath("IdleMove")
+
+[node name="IdleMove" type="Node" parent="StateMachine" unique_id=1358721213 node_paths=PackedStringArray("dash_state")]
+script = ExtResource("4_75vfm")
+dash_state = NodePath("../Dash")
+
+[node name="Dash" type="Node" parent="StateMachine" unique_id=352286385 node_paths=PackedStringArray("cooldown_state")]
+script = ExtResource("5_0owmy")
+cooldown_state = NodePath("../Cooldown")
+
+[node name="Cooldown" type="Node" parent="StateMachine" unique_id=1848113301 node_paths=PackedStringArray("idle_state")]
+script = ExtResource("6_qek5x")
+idle_state = NodePath("../IdleMove")
+
+[node name="CooldownDash" parent="." unique_id=1738947827 instance=ExtResource("8_qek5x")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -60.0
+offset_top = -105.0
+offset_right = 60.0
+offset_bottom = -75.0
+grow_horizontal = 1
+grow_vertical = 1

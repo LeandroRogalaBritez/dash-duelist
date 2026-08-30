@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bio4ygvyni233"]
+
+[ext_resource type="PackedScene" uid="uid://cyvvu20c2xso8" path="res://scenes/player/player.tscn" id="1_1qjuf"]
+[ext_resource type="Script" uid="uid://ca5vggs1g7e4r" path="res://scenes/arena/arena.gd" id="1_5tue2"]
+[ext_resource type="PackedScene" uid="uid://b0gg5ip54uifb" path="res://scenes/ui/hud.tscn" id="3_aj7ud"]
+
+[node name="Arena" type="Node2D" unique_id=1112265799]
+script = ExtResource("1_5tue2")
+
+[node name="Player" parent="." unique_id=1683019178 instance=ExtResource("1_1qjuf")]
+position = Vector2(530, 321)
+
+[node name="Hud" parent="." unique_id=2043685480 instance=ExtResource("3_aj7ud")]

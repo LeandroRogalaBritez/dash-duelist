@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b0gg5ip54uifb"]
+
+[ext_resource type="Script" uid="uid://df4dr68eo0fhl" path="res://scenes/ui/hud.gd" id="1_0mwgc"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1876236410]
+script = ExtResource("1_0mwgc")
+
+[node name="CooldownDash" type="ProgressBar" parent="." unique_id=1114424286]
+offset_right = 73.0
+offset_bottom = 27.0
+value = 100.0
+show_percentage = false
