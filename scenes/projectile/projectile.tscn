@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://cme3cphw11oyo"]
 
-[node name="Projectile" type="Node2D" unique_id=663141620]
+[ext_resource type="Script" uid="uid://dxpyixwy1m3wq" path="res://scenes/projectile/projectile.gd" id="1_t8015"]
+[ext_resource type="Texture2D" uid="uid://cvc36615hdxxm" path="res://assets/sprites/projectil/basicarrow.png" id="2_2dulq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lw0th"]
+size = Vector2(17, 6)
+
+[node name="Projectile" type="Area2D" unique_id=600578098]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_t8015")
+speed = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=531459749]
+texture = ExtResource("2_2dulq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1058246610]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_lw0th")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=969197341]

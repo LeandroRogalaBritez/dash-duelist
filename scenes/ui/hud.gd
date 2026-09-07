@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var cooldown_dash: ProgressBar = $CooldownDash
+@onready var health: ProgressBar = $Heath
 
-func _on_dash_cooldown_change(_progress: float) -> void:
-	cooldown_dash.value = _progress * 100.0
+func _on_health_change(_health: float) -> void:
+	health.value = _health

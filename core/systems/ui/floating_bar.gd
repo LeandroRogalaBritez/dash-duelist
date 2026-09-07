@@ -14,4 +14,4 @@ func _process(_delta: float) -> void:
 		global_position = target.global_position + offset
 
 func update(_progress: float) -> void:
-	value = _progress * 100.0
+	value = _progress

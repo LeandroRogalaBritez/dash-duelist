@@ -2,12 +2,20 @@
 
 [ext_resource type="Script" uid="uid://ndgy7po6dn3k" path="res://core/systems/ui/floating_bar.gd" id="1_x5ns0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf5tr"]
+bg_color = Color(0.6, 0.6, 0.6, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgqa7"]
+bg_color = Color(0.4, 0.6745098, 0.4509804, 1)
+
 [node name="FloatingBar" type="ProgressBar" unique_id=1738947827]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_uf5tr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lgqa7")
 value = 100.0
 show_percentage = false
 script = ExtResource("1_x5ns0")

@@ -9,16 +9,15 @@ func enter() -> void:
 	timer = frames_cooldown / 60.0
 	actor.dash_open = false
 	actor.dash_cooldown_change.emit(0)
+	actor.sprite.play("idle")
 
 func physics_process(delta: float) -> void:
-	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	actor.velocity = input_dir * actor.normal_velocity
-	actor.move_and_slide()
+	actor.move_with_input()
 
 	timer -= delta
 	
 	var progress: float = 1.0 - (timer / (frames_cooldown / 60.0))
-	actor.dash_cooldown_change.emit(progress)
+	actor.dash_cooldown_change.emit(progress * 100)
 	
 	if timer <= 0.0:
 		actor.dash_open = true

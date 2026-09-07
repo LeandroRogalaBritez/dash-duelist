@@ -52,12 +52,22 @@ dash={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player_hurtbox"
+2d_physics/layer_3="player_hitbox"
+2d_physics/layer_4="enemy_hurtbox"
+2d_physics/layer_5="enemy_hitbox"
+2d_physics/layer_6="player_body"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

@@ -2,11 +2,19 @@
 
 [ext_resource type="Script" uid="uid://df4dr68eo0fhl" path="res://scenes/ui/hud.gd" id="1_0mwgc"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mwgc"]
+bg_color = Color(0.6, 0.6, 0.6, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo48s"]
+bg_color = Color(0.4, 0.6745098, 0.4509804, 1)
+
 [node name="Hud" type="CanvasLayer" unique_id=1876236410]
 script = ExtResource("1_0mwgc")
 
-[node name="CooldownDash" type="ProgressBar" parent="." unique_id=1114424286]
+[node name="Heath" type="ProgressBar" parent="." unique_id=1114424286]
 offset_right = 73.0
 offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0mwgc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bo48s")
 value = 100.0
 show_percentage = false
