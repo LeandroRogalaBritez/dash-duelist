@@ -4,16 +4,15 @@ extends State
 @export var idle_state: State
 
 func enter() -> void:
-	actor.sprite.play("walk")
+	actor.play_anim("walk")
 
 func physics_process(_delta: float) -> void:
 	actor.move_with_input()
 
-	if Input.is_action_just_pressed("dash") and actor.dash_open:
+	if actor.wants_dash():
 		state_machine.change_state_to(dash_state)
 		return
-	
-	if actor.last_direction == Vector2.ZERO:
+
+	if actor.input_dir == Vector2.ZERO:
 		state_machine.change_state_to(idle_state)
-	
-	
+

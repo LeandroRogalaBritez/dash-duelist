@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/victory_screen.gd" id="1_victory"]
+
+[node name="VictoryScreen" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_victory")
+
+[node name="Root" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03137255, 0.02745098, 0.043137256, 0.7882353)
+
+[node name="VBox" type="VBoxContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -80.0
+offset_right = 180.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="Root/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="Reason" type="Label" parent="Root/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7137255, 0.7607843, 0.8392157, 1)
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="Root/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Voltar ao menu"

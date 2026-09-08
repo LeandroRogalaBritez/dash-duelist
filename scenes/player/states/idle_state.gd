@@ -4,14 +4,17 @@ extends State
 @export var walk_state: State
 
 func enter() -> void:
-	actor.sprite.play("idle")
+	actor.play_anim("idle")
 
 func physics_process(_delta: float) -> void:
 	actor.move_with_input()
 
-	if Input.is_action_just_pressed("dash") and actor.dash_open:
+	if actor.wants_dash():
 		state_machine.change_state_to(dash_state)
 		return
-	
-	if actor.last_direction != Vector2.ZERO:
+
+	# input_dir, não last_direction: last_direction nunca volta a zero (o dash
+	# precisa da última direção válida), então usá-la aqui deixava o player
+	# preso em Walk para sempre.
+	if actor.input_dir != Vector2.ZERO:
 		state_machine.change_state_to(walk_state)
