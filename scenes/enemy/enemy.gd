@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Combatant
 class_name Enemy
 
 @export var normal_velocity: int = 96

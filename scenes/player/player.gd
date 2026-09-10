@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Combatant
 class_name Player
 
 # MODELO DE CONFIANÇA (decisão consciente, não descuido):

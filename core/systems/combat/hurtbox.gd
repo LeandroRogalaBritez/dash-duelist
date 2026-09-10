@@ -3,7 +3,7 @@ class_name Hurtbox
 
 const DAMAGE := 20
 
-@onready var actor: Node = get_parent()
+@onready var actor: Combatant = get_parent() as Combatant
 
 func _ready() -> void:
 	area_entered.connect(_on_hit)
@@ -18,13 +18,6 @@ func _on_hit(other: Node) -> void:
 		return
 
 	# Funil: quem sabe decidir o próprio dano decide (o Player, que em PVP
-	# delega a decisão ao host). O caminho legado abaixo mantém o Enemy
-	# exatamente como era.
-	if actor.has_method("on_hurtbox_hit"):
-		actor.on_hurtbox_hit(other, DAMAGE)
-		return
-
-	if (actor.has_method("is_invulnerable")) and actor.is_invulnerable():
-		return
-	if (actor.has_method("take_damage")):
-		actor.take_damage(DAMAGE)
+	# delega a decisão ao host). O default de Combatant.on_hurtbox_hit()
+	# mantém o Enemy exatamente como era.
+	actor.on_hurtbox_hit(other, DAMAGE)
