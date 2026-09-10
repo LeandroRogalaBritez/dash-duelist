@@ -5,3 +5,4 @@ build
 
 # Cópias temporárias que o Godot faz das GDExtension libs para hot-reload
 ~*.TMP
+/build
